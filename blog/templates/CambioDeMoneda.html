@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+		<div class="header">  
+		<br>
+		<br>
+		<br>
+		<br>          
+            <h1 align=center><font color = white>Cambio de Moneda</font></h1>
+        </div> 
+		<br>
+
+        <div class= "contentMoneda">
+		    <select id="combo1">		
+    
+				<option value="Pesos">Pesos Arg</option>
+				<option value="Euros">Euros</option>				
+				<option value="Dolar">Dolar</option>
+				<option value="Reales">Reales</option>
+				<option value="Chilenos">Chilenos</option>
+				<option value="Uruguayos">Uruguayos</option>
+			</select>
+			
+		    
+		    <input id="conver" type="text" value=""/>
+		    <input id="resultado" type="text" value=""/>
+		    
+		    
+		    <select id="combo2">
+				<option value="Pesos1">Pesos Arg</option>
+				<option value="Euros1">Euros</option>				
+				<option value="Dolar1">Dolar</option>
+				<option value="Reales1">Reales</option>
+				<option value="Chilenos1">Chilenos</option>
+				<option value="Uruguayos1">Uruguayos</option>
+			</select>
+		</div>
+		<div class="teclasNoNum">
+			<input type="button" id="Limpiar1" onclick="Limpiar(this)" value="Limpiar"/>
+			<input type="button" id="Convertir" onclick="Convertir(this)" value="Convertir" />
+		    <br>
+		</div>
+		<div class= "tecladoNum">
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="1" />
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="2" />
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="3" />
+		    <br>
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="4" />
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="5" />
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="6" />
+		    <br>
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="7" />
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="8" />
+		    <input type="button" id="btn1" onclick="ejecutar(this)" value="9" />
+		</div> 
+		    <br>
+		    <br>
+		    <br>
+		<div class="botonTroll">
+		    <b>¿No le gusta?</b>
+			<br>
+        	<input type="button" id="Chistoso" onmouseover="Joder(this)" value="Queja"/>
+		</div>
+			
+{% endblock %}
+{% block script %}
+	<script>
+/*valores de conversión con referencia pesos
+pesos=1;
+euro=9.5;
+dolar=8.8;
+reales=2.9;
+chilenos=0.01;
+uruguayos=0.3;
+*/
+	var valores=[1,9.5,8.8,2.9,0.01,0.3]
+		function ejecutar(botoncito) {
+            aprieta = botoncito.value;
+            val = document.getElementById("conver").value;
+		        if (aprieta=="1"||"2"||"3"||"4"||"5"||"6"||"7"||"8"||"9"){
+		        	 document.getElementById("conver").value=("value",val+aprieta);
+		        }	
+        }
+/*--------------------------------------------------------------------------------------*/        
+        function Limpiar(boton){
+        	aprieta = boton.value;
+        		if (aprieta=="Limpiar"){
+        			document.getElementById("conver").value=("value","");
+        			document.getElementById("resultado").value=("value","");        			
+        		}
+    		}
+/*--------------------------------------------------------------------------------------*/
+    	function Convertir(btn){
+    		aprieta = btn.value;
+    		val1 = document.getElementById("conver").value;
+    			if(aprieta=="Convertir"){     			
+    				var cuadroTxt= parseFloat(document.getElementById("conver").value);
+    				
+    				var monedaPasada = document.getElementById("combo1").selectedIndex;         	
+    				var monedaAPasar = document.getElementById("combo2").selectedIndex;    				
+					var resultado1 = (valores[monedaPasada]*cuadroTxt)/valores[monedaAPasar];
+					
+    				document.getElementById("resultado").value=("value",resultado1);
+    				
+    			}
+    		}
+/*--------------------------------------------------------------------------------------*/
+    	function Joder(btn1){
+    		aprieta=btn1.value;
+    		if (aprieta=="Queja"){
+ 				document.getElementById("Chistoso").style.margin="0px 100px";
+ 				document.getElementById("Chistoso").value="Si no te gusta";
+			}
+			if (aprieta=="Si no te gusta"){
+				document.getElementById("Chistoso").style.margin="0px -100px";
+				document.getElementById("Chistoso").value="Jodete";
+			}
+			if (aprieta=="Jodete"){
+				document.getElementById("Chistoso").style.margin="0px 100px";
+				document.getElementById("Chistoso").value="Si no te gusta";
+			}
+    	}
+/*--------------------------------------------------------------------------------------*/
+	</script>
+{% endblock %}
+	
+</html>

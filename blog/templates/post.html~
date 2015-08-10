@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+
+       
+{% endblock %}
+
+{% block content %}
+	<br>
+	<br>
+	<br>
+	<br>
+<div class="content">
+<article>
+	<a href="{% url 'app_blog:home' %}"><i class="fa fa-home"></i>Atras</a>
+	<h2 class="section-heading">{{post.titulo}}</h2>
+	<h3 class="section-heading">{{post.fecha}}</h3>
+	<p>{{post.contenido}} </p>
+	{% csrf_token %} 
+
+</article>
+</div>
+ <div id="mensajes">
+                {% for comentario in mensajes %}
+                <h5>{{comentario.nombre}}</h5>
+                <small>{{comentario.fecha}}</small>
+                <p>{{comentario.mensaje}}</p>
+                <hr>
+                {% endfor %}
+    </div>
+<div class="content">
+
+<div><label>Tu Nombre:</label><input type='text' id="nombre" value=''></div>
+<div><label>Comentario:</label><textarea rows='6' id="comentario"></textarea></div>
+<input type="button" id="send" value="Comentar" />
+</div>
+
+{% endblock %}
+{% block script %}
+<script>
+	$("#send").click(function(){
+		console.log("tu vieja")
+		var data={
+			csrfmiddlewaretoken:'{{ csrf_token }}',
+			nombre: $("#nombre").val(),
+			mensaje: $("#comentario").val(),	
+			id:'{{post.id}}	',
+		}
+		$.ajax({
+			method: "POST",
+			url: "{% url 'app_blog:comentar' %}",
+			data:data,
+			success:function(result){
+                		$("#mensajes").prepend("<h5>"+result.nombre+"</h5><small>"+result.fecha+"</small><p>"+result.mensaje+"</p><hr>");
+				$("#nombre").text("");
+				$("#comentario").attr("value","");
+			},
+			error: function(e){
+				console.log("ERRRORRRR");
+				console.log(e.responseText);
+			}
+		});
+	}); 
+
+</script>
+{% endblock %}
+
+
+

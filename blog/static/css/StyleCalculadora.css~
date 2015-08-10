@@ -1,0 +1,25 @@
+.tecladoNum{    
+    width: 58.5%;
+    float:left; 
+    margin-left:43%;
+}
+.tecladoNum input[type='button']{ 
+	margin-top:2px;
+	background-color: whithe; 
+	color: black; 
+	border-radius:7px; 
+	padding:2px 18px;  
+	width:10px; 
+	margin-bottom:2px;
+}
+.tecladoNum input[type='button']:hover{
+	background-color: #ddd;
+	cursor:pointer;
+
+}
+.tecladoNum input[type='text']{
+	border-radius:7px;
+	margin-bottom:2px;
+	background-color: whithe;
+	box-shadow:0 0 0 3px #033333;
+}

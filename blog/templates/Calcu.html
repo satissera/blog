@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div class="header">            
+            <h1 align=center><font color = white>Calculadora</font></h1>
+        </div> 
+		
+        <div class="tecladoNum">
+			<input id="resultado" type="text" value=""/>
+			<br>
+            <input type="button" id="btn1" onclick="ejecutar(this)" value="1" />
+            <input type="button" id="btn2" onclick="ejecutar(this)" value="2" />
+            <input type="button" id="btn3" onclick="ejecutar(this)" value="3" />
+            <input type="button" id="btnmas" onclick="ejecutar(this)" value="+" />
+            <br>
+            <input type="button" id="btn4" onclick="ejecutar(this)" value="4" />
+            <input type="button" id="btn5" onclick="ejecutar(this)" value="5" />
+            <input type="button" id="btn6" onclick="ejecutar(this)" value="6" />
+            <input type="button" id="btnmenos" onclick="ejecutar(this)" value="-" />
+            <br>
+            <input type="button" id="btn7" onclick="ejecutar(this)" value="7" />
+            <input type="button" id="btn8" onclick="ejecutar(this)" value="8" />
+            <input type="button" id="btn9" onclick="ejecutar(this)" value="9" />
+            <input type="button" id="btnpor" onclick="ejecutar(this)" value="*" />
+            <br>
+            <input type="button" id="btnp" onclick="ejecutar(this)" value="." />
+            <input type="button" id="btn0" onclick="ejecutar(this)" value="0" />
+            <input type="button" id="btne" onclick="ejecutar(this)" value="=" />
+            <input type="button" id="btndiv" onclick="ejecutar(this)" value="/" />
+            <br>
+        </div>
+	
+	
+{% endblock %}
+
+
+/*--------------------------------------------------------------------------------------*/
+{% block script %}
+	<script>
+	aux=0
+	function ejecutar(botoncitodelacalculadorita) {
+            aprieta = botoncitodelacalculadorita.value;
+            val = document.getElementById("resultado").value;
+             if (aux != 0){
+		        if (aprieta=="1"||"2"||"3"||"4"||"5"||"6"||"7"||"8"||"9"){
+		        	 document.getElementById("resultado").setAttribute("value",aprieta);
+		        	 aux=0;
+		        }
+            }else{
+            if (aprieta=="="){
+                if (val.length!=0){
+                    result = eval(val);
+                document.getElementById("resultado").setAttribute("value",result);
+                aux = 1;
+                }
+            }
+           	else{ document.getElementById("resultado").setAttribute("value",val+aprieta);
+            }
+                    
+			}
+        }
+/*--------------------------------------------------------------------------------------*/
+  	</script>
+{% endblock %}
+</html>

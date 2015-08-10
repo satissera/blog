@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<div class="contentCrono">
+<font color = white>
+<h1>Contador de vueltas</h1>
+	<h2 id='crono'>00:00:00</h2>
+</font>
+	<input type="button" value="Empezar" onclick="empezarDetener(this);">
+	<input type="button" value="Vuelta" id="vuelta" onclick="mostrarValorActual();" disabled>
+</div>
+
+<div id="tiempos"><div></div></div>
+{% endblock %}
+
+
+
+{% block script %}
+
+<script>
+/*--------------------------------------------------------------------------------------*/
+	var inicio=0;
+	var vuelta=0;
+	var timeout=0;
+ 
+	function empezarDetener(elemento)
+	{
+		if(timeout==0)
+		{
+			elemento.value="Detener";
+			inicio=vuelta=new Date().getTime();
+			document.getElementById("tiempos").innerHTML="<div></div>";
+			funcionando();
+			document.getElementById("vuelta").disabled=false;
+		}else{
+			elemento.value="Empezar";
+			document.getElementById("vuelta").disabled=true;
+			clearTimeout(timeout);
+			timeout=0;
+		}
+	}
+/*--------------------------------------------------------------------------------------*/
+ 
+	function funcionando()
+	{
+		var actual = new Date().getTime();
+		var diff=new Date(actual-inicio);
+ 
+
+		var result=LeadingZero(diff.getUTCHours())+":"+LeadingZero(diff.getUTCMinutes())+":"+LeadingZero(diff.getUTCSeconds());
+		document.getElementById('crono').innerHTML = result;
+ 
+		timeout=setTimeout("funcionando()",1000);
+	}
+ /*--------------------------------------------------------------------------------------*/
+	/**
+	 * Función que muestra cada vuelta
+	 */
+	function mostrarValorActual()
+	{
+
+		var actual=new Date().getTime();
+		var diff=new Date(actual-vuelta);
+ 
+
+		vuelta=new Date().getTime();
+ 
+		var ultimo=document.createElement("div");
+		ultimo.innerHTML=LeadingZero(diff.getUTCHours())+":"+LeadingZero(diff.getUTCMinutes())+":"+LeadingZero(diff.getUTCSeconds())+","+diff.getUTCMilliseconds();
+ 
+
+		document.getElementById("tiempos").insertBefore(ultimo,document.getElementById("tiempos").getElementsByTagName("div")[0]);
+	}
+ 
+/*--------------------------------------------------------------------------------------*/
+	function LeadingZero(Time) {
+		return (Time < 10) ? "0" + Time : + Time;
+	}
+/*--------------------------------------------------------------------------------------*/
+
+	</script>
+{% endblock %}
+</html>

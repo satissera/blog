@@ -1,0 +1,93 @@
+body{
+	background: url(img/fondo.png);
+}
+.header{
+    text-align: center;
+    font-family:monospace;
+}
+
+nav li {
+    display: inline;
+   	text-align: center;
+   	margin: 0 10px 0 0;
+}
+nav ul {
+    list-style-type: none;
+   	text-align: center;
+}
+/*--------------------------------------------------------------------------------------*/
+.content{  
+	background:-webkit-linear-gradient(#F2F2F2, #8A8685);
+	background:-moz-linear-gradient(#F2F2F2, #8A8685);
+	background:linear-gradient(#F2F2F2, #8A8685)
+	z-index:2;  
+    width: 75%;
+    float:left;
+	margin-left:10%; 
+    padding-left: 55px;
+	padding-right: 35px;
+	margin-bottom: 50px;
+
+}
+/*--------------------------------------------------------------------------------------*/
+.content1{
+    width: 30%;
+    float:left; 
+    padding-left: 50%;
+}
+/*--------------------------------------------------------------------------------------*/
+.topbar{
+	z-index:1;
+	position:fixed;
+	width:200%;
+	height:75px;  
+	margin-left:-20%;
+	margin-top:-2%;
+	background-color:#333333 ;
+}
+/*--------------------------------------------------------------------------------------*/
+.topMenu {
+    z-index: 2;
+    position: absolute;
+    padding:10px;
+    position: fixed;
+    margin-top: 0;
+    margin-left:1%;
+}
+.topMenu li {
+    display:inline;
+}
+.topMenu li a {
+    font-family:arial;
+    font-size:18px;
+    text-decoration:none;
+    float:left;
+    padding:11px;
+    background: #333333;
+    color:#ffffff;
+}
+.topMenu li a:hover{
+    font-size: 20px;
+    background-color:#eeeeee;
+    color: #666;
+}
+/*--------------------------------------------------------------------------------------*/
+p{
+	text-indent: 20px;
+	border-radius: 3px;
+	line-height: 200%;
+
+}
+/*--------------------------------------------------------------------------------------*/
+
+table {
+	background:-webkit-linear-gradient(#F2F2F2, #8A8685);
+	background:-moz-linear-gradient(#F2F2F2, #8A8685);
+	background:linear-gradient(#F2F2F2, #8A8685)
+	text-indent: 20px;
+	border: 1px dotted gray;
+	line-height: 200%;
+	margin-bottom:10%;
+}
+
+

@@ -1,0 +1,9 @@
+.contentCrono {
+	float:left;
+	text-align:center;
+	width:200px;
+	padding-left: 350px;
+}
+.contentCrono input[type='button']{
+border-radius: 5px; 
+}

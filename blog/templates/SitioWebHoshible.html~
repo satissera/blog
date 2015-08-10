@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+	<br>
+	<br>
+	<br>
+	<br>
+        <div class="header">            
+            <h1 align=center><font color = white>Sitio Web Hoshible</font></b></h1>
+            <b><font color = white>El pasaje estándar Lorem Ipsum, usado desde el año 1500.</font></b>
+	    
+			<br>
+			<br>
+
+        </div>
+
+	<div class="content">
+ 		<div style="height: 200px; width: 200px;"><img src="{% static 'img/01.jpg' %}" id="image" width=200 height = 200 ALIGN=right /></div>
+		<progress id="bar" value="0" max="100"></progress>
+	</div>
+
+
+	{% for post in posts %}
+        <div class="content">
+		<a href="{% url 'app_blog:vermipost' post.id %}">
+		<h2 class="post-title">
+			{{post.titulo}}
+		</h2>
+                <h3 class="post-subtitle">
+                	{{post.resumen}}
+                </h3>
+		</a>
+		<hr>
+	</div>
+        {% endfor %}
+		
+            
+	{% endblock %}
+
+	{% block scripts %}
+        <script>
+ 	var images = ["./static/img/01.jpg","./static/img/02.jpg","./static/img/03.jpg","./static/img/04.jpg","./static/img/05.jpg","./static/img/06.jpg"];
+        var tiempo = setInterval(function(){load();},1000);
+
+        $(document).ready(function(){
+            load();
+        });
+
+        var por = document.getElementById("bar");
+        var img = document.getElementById("image");
+        a = 0;
+        var time = setInterval(load, 50);
+
+        function load(){
+            a ++;
+            por.value = a;
+            if (por.value == 100){
+                a = 0;
+                por.value = a;
+                var i = Math.round(Math.random()*5);
+                img.setAttribute("src",images[i]);
+            }
+        }
+		</script>
+	{% endblock %}
+	</body>
+	
+
+	
+</html>

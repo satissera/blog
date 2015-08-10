@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+		<br>
+		<br>
+		<br>
+        <div class="header">            
+		  <h1 align=center><font color = white>Curriculum Vitae</font></h1>
+        </div>
+		<div class="content1">
+            <img src = "{% static 'css/img/descarga.jpg' %}"></img>    
+        
+			<h3><font color = white>Datos Personales</font></h3>
+        
+         	<table>
+                    <tr>
+                        <td><strong>Apellido:</strong></td>
+                        <td>Alvarez</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nombre</strong></td>
+                        <td>Bonefacio</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha de nacimiento:</strong></td>
+                        <td>08/02/1998</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DNI:</strong></td>
+                        <td>30.300.300</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sexo:</strong></td>
+                        <td>Masculino</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dirección:</strong></td>
+                        <td>Villa los Aromos Los nogales 360</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Teléfono:</strong></td>
+                        <td>153453593</td>
+                    </tr>
+                    <tr>
+                        <td><strong>E-mail:</strong></td>
+                        <td>Maestruli@gDuro.com</td>
+                    </tr>
+                </table>
+
+		<h3><font color = white>Formación Académica<font></h1>
+		<table>
+			<tr>
+				<td><strong>Colegio Secundario:</strong></td>
+				<td>ITS Villada</td>
+			</tr>
+			<tr>
+				<td><strong>Experto:</strong></td>
+				<td>La conjetura postdadaísta, la dialéctica yuxtaposicional y las teorías de Jung</td>
+			</tr>	
+			
+        </div>
+       	
+{% endblock %}
+		
+</html>

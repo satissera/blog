@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/Style.css' %}"type="text/css">
+	<link rel="stylesheet" href="{% static 'css/StyleCalculadora.css' %}"type="text/css">
+	<link rel="stylesheet" href="{% static 'css/StyleCambioMoneda.css' %}"type="text/css">
+	<link rel="stylesheet" href="{% static 'css/StyleCronómetro.css' %}"type="text/css">
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="topbar"></div>
+            <ul class="topMenu">
+				<li>
+				    <a href="{% url 'app_blog:home' %}"><i class="fa fa-home"></i>Inicio</a>
+				</li>
+				<li>
+				    <a href="{% url 'app_blog:contacto' %}"></i>Contactanos</a>
+				</li>
+				<li>
+				    <a href="{% url 'app_blog:conversor' %}"><i class="fa fa-money"></i>Conversor</a>
+				</li>
+				<li>
+				    <a href="{% url 'app_blog:calcu' %}"><i class="fa fa-calculator"></i>Calculadora</a>
+				</li>
+				<li>
+				    <a href="{% url 'app_blog:crono' %}"><i class="fa fa-clock-o"></i>Cronometro</a>
+				</li>
+				<li>
+				    <a href="{% url 'app_blog:curriculum' %}"><i class="fa fa-briefcase"></i>Curriculum</a>
+				</li>                   
+				<li>
+				    <a href="{% url 'admin:index' %}">Admin</a>
+				</li>                    
+			</ul>
+		</div>
+
+{% block css %}    
+{% endblock %}
+</head>
+
+<div class="container">
+{% block content %}
+{% endblock %}
+        
+</div>
+<!-- jQuery -->
+<script src="{% static 'js/jquery-2.1.4.js' %}"></script>
+{% block script %}
+{% endblock %}
+
+</body>
+
+</html>

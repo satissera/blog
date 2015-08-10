@@ -1,0 +1,83 @@
+.header{
+    text-align: center;
+    font-family:monospace;
+}
+
+/*----------------------------------------------------------------------------*/
+.botonTroll{
+	width: 57%;
+    float:right;
+}
+/*--------------------------------teclas convertir y limpiar--------------------------------------------*/
+.teclasNoNum{
+	width: 57%;
+    float:right;
+	margin-top:5px;
+}
+.teclasNoNum input[type='button']{
+	background-color: whithe; 
+	color: black; 
+	border-radius:7px; 
+	margin-bottom:2px;
+}
+.teclasNoNum input[type='button']:hover{
+	background-color: #ddd;
+	cursor:pointer;
+	
+}
+	
+/*---------------------------------teclado numérico-------------------------------------------*/
+.tecladoNum{    
+    width: 57%;
+    float:right;
+	margin-bottom:5px;
+}
+.tecladoNum input[type='button']{
+	background-color: whithe; 
+	color: black; 
+	border-radius:7px; 
+	padding:2px 18px;  
+	width:10px; 
+	margin-bottom:2px;
+}
+.tecladoNum input[type='button']:hover{
+	background-color: #ddd;
+	cursor:pointer;
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+.contentMoneda{    
+    width:71%;
+    float:left;
+	margin-left:33%;
+}
+.contentMoneda input[type='text']{
+	width:100px;
+	height:25px;
+	border-radius:3px;
+	outline: none;
+    box-shadow:0 0 0 3px #333333;
+	font-weight: bold;
+}
+/*----------------------------------------------------------------------------*/
+select{
+	-webkit-background-color: #ddd;
+    -moz-background-color: #ddd;
+	background-color: #ddd;
+   	padding: 3px;
+   	font-size: 16px;
+   	border: 0;
+   	border-radius: 3px;
+    -webkit-appearance: none;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+select:hover{
+	background-color: #ddd;
+	cursor:pointer;
+}
+/*----------------------------------------------------------------------------*/

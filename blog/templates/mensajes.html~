@@ -1,0 +1,11 @@
+{% for mensaje in comentario %}
+        <div class="content">
+		<h2>
+                            {{mensaje.nombre}}
+                        </h2>
+                    <p class="grey-text">Comentado el {{mensaje.fecha}}</p>
+                        <p class="white-text">
+                            {{mensaje.mensaje}}
+                        <p>
+	</div>
+        {% endfor %}
